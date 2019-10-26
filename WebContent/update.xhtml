@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>JSF Hibernate CRUD Example</title>
+	<style>
+		tfoot {
+			text-align: center;
+		}
+		
+		thead {
+			background-color: magenta;
+			color: white;
+		}
+		
+		td {
+			font-weight: bold;
+		}
+		
+		.msg {
+			font-size: small;
+			color: blue;
+		}
+	</style>
+	<script src="resources/scripts.js"></script>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:commandButton value="Retornar ao início" action="#{cadastro.navigateIndex}" ajax="false" />
+	</h:form>
+	
+	<h:form id="cadastroForm" enctype="multipart/form-data">
+	
+		<p:panelGrid id="panel2" columns="3" cellpadding="5"
+			cellspacing="1">
+			<f:facet name="header">
+				<h:outputText value="Atualizar cadastro" />
+			</f:facet>
+
+			<p:outputLabel value="Nome:" />
+			<p:inputText value="#{cadastro.nome}" id="nome"
+				maxlength="100" required="true" requiredMessage="Campo obrigatório" />
+			<p:message for="nome" />
+
+			<p:outputLabel value="Senha:" />
+			<p:inputText value="#{cadastro.senha}"  required="true" id="senha" validatorMessage="senha mal formatado" requiredMessage="Campo obrigatório">
+				<f:validateRegex pattern="^[0-9]{2,3}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}-[0-9]{2}$" />
+			</p:inputText>
+			<p:message for="senha" />
+
+			<p:outputLabel value="DDD:" required="true" />
+			<p:inputText value="#{cadastro.DDD}" id="ddd"
+				maxlength="150" required="true" requiredMessage="Campo obrigatório" />
+			<p:message for="ddd" />
+
+			<p:outputLabel value="Número:" />
+			<p:inputText value="#{cadastro.numero}" id="numero" required="true"
+				requiredMessage="Campo obrigatório" maxlength="10">
+				<f:convertNumber integerOnly="true" type="number" />
+			</p:inputText>
+			<p:message for="numero" />
+
+			<p:outputLabel value="Email" />
+			<p:inputText id="email" value="#{cadastro.email}" label="email"
+				size="40" validatorMessage="Email mal formatado">
+
+				<f:validateRegex
+					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+			</p:inputText>
+			<p:message for="email" />
+
+			<f:facet name="footer">
+				<h:commandButton value="Atualizar"
+					update="cadastroForm"
+					action="#{cadastro.updateCadastro}">
+					<f:ajax
+						render="nome senha ddd numero email"
+						execute="@form" />
+				</h:commandButton>
+			</f:facet>
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

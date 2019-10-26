@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14190281030770" configfile="/exemplo-crud-jsf-hibernate/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf14190852308241" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="insert.xhtml" x="122" y="562" id="pf14190852308253" path="/insert.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf14190874232304" outlinks="pf14190874232305 pf14190901493357 pf14191070382980" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="insert.xhtml" x="338" y="754" id="pf14190874232306" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14190874232305" path="insert.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="1138" id="pf14190901493358" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14190901493357" path="index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="updateDelete.xhtml" id="pf14191070382981" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14191070382980" path="update.xhtml"/>
+  <links id="pf14190874232305" target="pf14190874232306" source="pf14190874232304" outcome="insert"/>
+  <links id="pf14190901493357" target="pf14190901493358" source="pf14190874232304" outcome="index"/>
+  <links id="pf14191070382980" target="pf14191070382981" source="pf14190874232304" outcome="update"/>
+</pageflow:Pageflow>

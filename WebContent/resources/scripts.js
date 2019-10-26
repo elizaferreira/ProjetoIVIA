@@ -1,0 +1,7 @@
+
+function chooseCelularResidencial(){
+	
+	$("#divCelularResidencial").toogle();
+	
+	
+}
