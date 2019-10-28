@@ -12,14 +12,14 @@ import javax.persistence.Table;
 public class Tipo extends Cadastro {
 	
     @OneToMany(fetch=FetchType.EAGER,mappedBy="celular", orphanRemoval=true)
-	private Set<Usuario> filiais;
+	private Set<Usuario> residenciais;
 
-	public Set<Usuario> getFiliais() {
-		return filiais;
+	public Set<Usuario> getResidenciais() {
+		return residenciais;
 	}
 
-	public void setFiliais(Set<Usuario> filiais) {
-		this.filiais = filiais;
+	public void setResidenciais(Set<Usuario> residenciais) {
+		this.residenciais = residenciais;
 	}
 	
 }
